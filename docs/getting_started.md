@@ -1,43 +1,58 @@
-# Getting Started
+# Prerequisites
 
-## So, What's Crowsa?
+The first step is to install [Crystal](https://crystal-lang.org/) and it's system dependencies. Really all Crowsa needs is just the system's webview (and Crystal, since that's what Crowsa is bulit ontop of).
 
-Crowsa is a little framework that lets you write Windows applications using [JavaScript](https://simple.wikipedia.org/wiki/JavaScript), [HTML](https://simple.wikipedia.org/wiki/HTML) and [CSS](https://simple.wikipedia.org/wiki/Cascading_Style_Sheets).
+### Setting up for Linux
 
-## Create a Project
+Install these system dependencies:
 
-One thing that makes Crowsa so flexible is it’s ability to work with any HTML builder engine.
-There's [to_html](https://github.com/sbsoftware/to_html.cr), [html_builder](https://github.com/crystal-lang/html_builder), [Blueprint](https://github.com/stephannv/blueprint) and alot more to choose from to write your HTML code from Crystal.
+=== "Arch"
 
-To get starting, first make a Crystal project:
+    ```sh
+    pacman -Syu webkit2gtk crystal shards
+    ```
 
-```sh
-crystal init app hello_world
-```
+=== "Ubuntu"
 
-To use Crowsa in that project, add this line to the application's `shard.yml`:
+    ```sh
+    apt update; sudo apt upgrade
+    curl -fsSL https://crystal-lang.org/install.sh | bash
+    ```
 
-```yaml
-dependencies:
-  crowsa:
-    git: https://codeberg.org/XDR/Crowsa
-```
+=== "Fedora"
 
-Then in `src/main.rs`, add these lines:
+    ```sh
+    dnf update; sudo dnf upgrade
+    dnf install webkitgtk crystal
+    ```
 
-```crystal
-require "crowsa/cli"
-require "crowsa/gui/macro"
-require "crowsa/gui/run"
-require "crowsa/main"
-```
+=== "Gentoo"
 
-## Prerequisites
+    ```sh
+    emerge --sync
+    emerge -a dev-lang/crystal net-libs/webkit-gtk
+    ```
 
-Funny thing, all Crowsa needs is just the system's webview.
+=== "openSUSE"
 
-* On Linux, [webkitgtk](https://repology.org/project/webkitgtk/versions) may not be installed, you can install it easily via your package manager.
+    ```sh
+    zypper refresh
+    zypper install webkit2gtk crystal
+    ```
 
-* While on Windows, you need Microsoft Edge's [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/?form=MA13LH#download) installed.
+=== "Void"
 
-For [MacOS](https://i.ytimg.com/vi/hJvW2bg_PFY/maxresdefault.jpg)...
+    ```sh
+    xbps-install -S webkit2gtk crystal
+    ```
+
+
+That's it, you can now code your application via Crowsa
+
+### Setting up for MacOS
+Work in Progress
+
+### Setting up for Windows
+
+You need Microsoft Edge's [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/?form=MA13LH#download) and Visual Studio.
+Work in progress.

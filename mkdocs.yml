@@ -9,7 +9,10 @@ theme:
     accent: deep purple
   features:
     - content.code.copy
+    - content.tabs.link
 markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -20,3 +23,7 @@ markdown_extensions:
 repo_name: Codeberg/XDR/Crowsa
 repo_url: https://codeberg.org/XDR/Crowsa
 copyright: Copyright &copy; 2024 XDR
+nav:
+  - Introduction: index.md
+  - Prerequisites: getting_started.md
+  - Create a Project: development.md
